@@ -1,0 +1,12 @@
+<% banks.each do |bank|%>
+  <div class="card bg-grey rounded-lg shadow-md p-6">
+    <br>
+
+      <span class="text-xl font-bold"> <%= bank.title%></span>
+    <br>
+    <%=link_to "Editar Banco", edit_bank_path(bank.id), class: "py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md" %>
+
+    <%=link_to "Eliminar Banco", bank_path(bank.id), method: :delete, class: "py-2 px-4 bg-red-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md" , data: { turbo_method: :delete, turbo_confirm: "¿Estas seguro ?"}%>
+
+  </div>
+<%end%>

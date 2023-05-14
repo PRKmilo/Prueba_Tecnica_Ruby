@@ -1,0 +1,34 @@
+<%= form_with model: supplier, url: "/suppliers", method: :post do |form|%>
+
+<div>
+<%=form.label :supplier_name%>
+<%=form.text_field :supplier_name%>
+</div>
+
+
+<div>
+<%=form.label :nit%>
+<%=form.text_field :nit%>
+</div>
+
+<div>
+<%=form.label :contact_person_name%>
+<%=form.text_field :contact_person_name%>
+</div>
+
+<div>
+<%=form.label :contact_person_number%>
+<%=form.text_field :contact_person_number%>
+</div>
+
+<%= form.collection_select :bank_id, Bank.all, :id, :title %>
+<div>
+<%=form.label :count_number%>
+<%=form.text_field :count_number%>
+</div>
+
+<div>
+<%= form.submit%>
+</div>
+
+<%end%>

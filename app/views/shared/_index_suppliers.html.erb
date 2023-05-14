@@ -1,0 +1,12 @@
+<% suppliers.each do |supplier|%>
+  <div class="card bg-grey rounded-lg shadow-md p-6">
+    <br>
+
+      <span class="text-xl font-bold"> <%= supplier.supplier_name%></span>
+    <br>
+    <%=link_to "Editar Proveedor", edit_supplier_path(supplier), class: "py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md" %>
+
+    <%=link_to "Eliminar Proveedor", supplier_path(supplier.nit), method: :delete, class: "py-2 px-4 bg-red-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md" , data: { turbo_method: :delete, turbo_confirm: "¿Estas seguro ?"}%>
+
+  </div>
+<%end%>
