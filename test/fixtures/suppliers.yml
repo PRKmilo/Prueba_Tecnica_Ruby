@@ -1,15 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  supplier_name: MyString
-  nit: MyString
-  contact_person_name: MyString
-  contact_person_number: MyString
-  count_name: MyString
+  supplier_name: 'sonic'
+  nit: '901362343-4'
+  contact_person_name: 'contact_test'
+  contact_person_number: '12314342'
+  count_number: '234123421'
+  bank_id: 0
 
 two:
-  supplier_name: MyString
-  nit: MyString
-  contact_person_name: MyString
-  contact_person_number: MyString
-  count_name: MyString
+  supplier_name: 'samsung'
+  nit: '901362343-4'
+  contact_person_name: 'jose test'
+  contact_person_number: '12342515223'
+  count_number: '1234142'
+  bank_id: 1

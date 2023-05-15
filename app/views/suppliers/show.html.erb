@@ -1,0 +1,43 @@
+<div class="container mx-auto px-4 py-8">
+<div>
+<h1 class="text-xl font-bold">
+<%=@supplier.supplier_name%>
+</h1>
+</div>
+
+<div>
+<h1 class="text-black-700">NIT:</h1>
+<h1 class="text-gray-700">
+<%=@supplier.nit%>
+</h1>
+</div>
+
+<div>
+<h1 class="text-black-700"><%=t('.contact_person')%></h1>
+<h1 class="text-gray-700">
+<%=@supplier.contact_person_name.nil? ? t('.doesnt exist information'): @supplier.contact_person_name%>
+</h1>
+</div>
+
+<div>
+<h1 class="text-black-700"><%=t('.contact_person_number')%></h1>
+<h1 class="text-gray-700">
+<%=@supplier.contact_person_number%>
+</h1>
+</div>
+
+<div>
+<h1 class="text-black-700"><%=t('.count_number')%></h1>
+<h1 class="text-gray-700">
+<%=@supplier.count_number%>
+</h1>
+</div>
+
+<div>
+<h1 class="text-black-700"><%=t('.bank_name')%></h1>
+<h1 class="text-gray-700">
+<%=@supplier.bank.title%>
+</h1>
+</div>
+</div>
+<%=link_to t('.back'), root_path,class: "py-2 px-4 bg-gray-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md"%>

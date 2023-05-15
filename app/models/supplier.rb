@@ -4,6 +4,7 @@ class Supplier < ApplicationRecord
   validates :contact_person_number, presence: true
   validates :count_number, presence: true
   self.primary_key = :nit
+  self.per_page = 10
 
   belongs_to :bank, optional: true
   def to_param

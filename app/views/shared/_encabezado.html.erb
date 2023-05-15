@@ -1,1 +1,4 @@
-<h1><%= link_to "PRUEBA", root_path%></h1>
+<header class="bg-gray-500"><%= link_to t('.test'), root_path%>
+
+<%= link_to t('log_out'), destroy_user_session_path, data: { "turbo-method": :delete }%>
+</header>

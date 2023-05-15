@@ -1,48 +1,55 @@
 <div>
-<h1 class="text-green-400 pt-4">welcome <%= @user.name %></h1>
+<h1 class="text-black-400 pt-4"> <%=t('.welcome')%> <%=@user.name %></h1>
 <%= render partial: 'shared/dashboard' , locals: {proveedores: @suppliers.count, bancos: @banks }%> 
 
 <div>
   <div class="flex">
-  <div class="w-1/2">
-  <h1>Formulario para registrar un banco</h1>
-  <%= render partial: 'shared/bank_form', locals: { bank: @bank } %>
-  </div>
+    <div class="w-1/2">
+      <h1><%=t('.form_bank')%></h1>
+      <br>
+        <%= render partial: 'shared/bank_form', locals: { bank: @bank } %>
+    </div>
   <br>
   <br>
-  <div class="w-1/2">
-  <h1>Formulario para registrar un proveedor</h1>
-  <%= render partial: 'shared/supplier_form', locals: { supplier: @supplier } %>
+    <div class="w-1/2">
+      <h1>Formulario para registrar un proveedor</h1>
+        <br>
+        <%= render partial: 'shared/supplier_form', locals: { supplier: @supplier ,verbo: :post, url: '/suppliers', valor: 'no'} %>
   </div>
   </div>
-<% if flash[:notice] %>
-  <div class="alert alert-success">
-     <%flash[:notice]%>
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <%flash[:notice]%>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="alert alert-danger">
+      <%flash[:alert]%>
+        <ul>
+          <% session[:errors].each do |msg| %>
+            <li><%= msg %></li>
+          <%end%> 
+        </ul>
+      </div>
+    <%end%>
+
+
+ </div>
+    <br>
+      <div>
+        <% if user_signed_in? %>
+           <%= link_to "Cerrar sesión", destroy_user_session_path, data: { "turbo-method": :delete } %>
+        <%end%>
+    <br>
   </div>
-<% end %>
+         <br>
 
-<% if flash[:alert] %>
-  <div class="alert alert-danger">
-    <%flash[:alert]%>
-    <ul>
-     <% session[:errors].each do |msg| %>
-        <li><%= msg %></li>
-     <%end%> 
-    </ul>
-  </div>
-<%end%>
+         <%= link_to t('.show_banks'), banks_path, method: :GET ,class: "py-2 px-4 bg-gray-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md"%>
 
-
-</div>
-<br>
-<div>
-<% if user_signed_in? %>
-<%= link_to "Cerrar sesión", destroy_user_session_path, data: { "turbo-method": :delete } %>
-<%end%>
-<br>
-</div>
-
-<%= link_to "Bancos", banks_path, method: :GET %>
-
-<%=render partial: 'shared/index_suppliers', locals: { suppliers: @suppliers} %>
+  <br>
+  <br>
+  <br>
+  <h1>Proveedores</h1>
+  <%=render partial: 'shared/index_suppliers', locals: { suppliers: @suppliers} %>
 </div>

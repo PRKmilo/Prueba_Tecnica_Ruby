@@ -1,1 +1,3 @@
 <h1>edit supplier form</h1>
+<% url = {:action => :update, :id => @supplier.nit}%>
+<%= render partial: 'shared/supplier_form',locals: {supplier: @supplier ,verbo: :put, url: url , valor: 'ocultar'}%>

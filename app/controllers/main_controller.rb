@@ -4,7 +4,7 @@ class MainController < ApplicationController
     @user = current_user
     @bank =Bank.new() 
     @supplier = Supplier.new()
-    @suppliers = Supplier.all
+    @suppliers = Supplier.paginate(page: params[:page])
     @banks = Bank.all.count
   end
 end
